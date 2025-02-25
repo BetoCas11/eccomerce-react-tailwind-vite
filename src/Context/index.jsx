@@ -6,6 +6,21 @@ import { useEffect } from 'react';
 const ShoppingCardContext = createContext();
 
 function ShoppingCardProvider ({children}) {
+    /* Consumo de API global */
+    const [items, setItems] = React.useState([]);
+    const APIURL = 'https://api.escuelajs.co/api/v1/products';
+
+    useEffect(() => { 
+      async function fetchData (url) {
+        const res =  await fetch(url);
+        const data = await res.json();
+        setItems(data);
+
+      };
+      fetchData(APIURL);
+  }, []);
+
+    
 
     const [count, setCount] = React.useState(0);
     /* Barra lateral para los detalles */
@@ -28,6 +43,8 @@ function ShoppingCardProvider ({children}) {
 
     return (
         <ShoppingCardContext.Provider value={{
+            items,
+            setItems,
             count, 
             setCount,
             asideBar,

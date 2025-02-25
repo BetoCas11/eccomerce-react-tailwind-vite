@@ -5,7 +5,7 @@ const month = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio","A
 
 function Card({data}){
     const {setCount, setAsideBar, setProductToShow, setCartProducts, setShowProducts, cartProducts} = React.useContext(ShoppingCardContext);
-    const [otherImgs, setOtherImgs] = React.useState(""); 
+    const [otherImgs, setOtherImgs] = React.useState("");
     const hours = new Date().getHours() % 12 == 0 ? 12 : new Date().getHours() % 12;
     const minutes = `${new Date().getMinutes()}`.length == 1 ? `0${new Date().getMinutes()}` : new Date().getMinutes();
     const period = new Date().getHours() <= 12 ? "a.m." : "p.m.";
@@ -14,11 +14,11 @@ function Card({data}){
     const isInCart = cartProducts.findIndex(item => item.title == spellingTitle);
     const dataImg = data?.images;
     const isArray = (array) => Array.isArray(array);
+    const randomNumber = Math.floor(Math.random() * 200);
     useEffect(() => {
-        const randomNumber = Math.floor(Math.random() * 200);
         setOtherImgs( `https://picsum.photos/640/480?random=${randomNumber}`);
-    }, [])
-    const invalidURL = ["https://placeimg.com/640/480/any", "https://example.com/sample.jpg", "https://placeimg.com/640/480/anzaaay", "https://picsum.photos/200", "https://pravatar.cc/", "https://api.escuelajs.co/api/v1/files/4f9e.jpg", "https://api.escuelajs.co/docs.jpg", "https://test.png", "https://via.placeholder.com/150", "https://via.placeholder.com/300", "https://www.freepik.es/vector-gratis/conjunto-pegatinas-moda-disenos-graficos-vectoriales-coloridos_20775660.htm#fromView=keyword&page=1&position=0&uuid=8c535cf6-7bd5-4a94-9d42-f21a146a0c73&query=Ropa", "https://img.freepik.com/free-photo/person-with-sexual-toy-bed_23-2149352504.jpg?semt=ais_hybrid"];
+    }, []) 
+    const invalidURL = ["https://placeimg.com/640/480/any", "https://example.com/sample.jpg", "https://placeimg.com/640/480/anzaaay", "https://picsum.photos/200", "https://pravatar.cc/", "https://api.escuelajs.co/api/v1/files/4f9e.jpg", "https://api.escuelajs.co/docs.jpg", "https://test.png", "https://via.placeholder.com/150", "https://via.placeholder.com/300", "https://www.freepik.es/vector-gratis/conjunto-pegatinas-moda-disenos-graficos-vectoriales-coloridos_20775660.htm#fromView=keyword&page=1&position=0&uuid=8c535cf6-7bd5-4a94-9d42-f21a146a0c73&query=Ropa", "https://img.freepik.com/free-photo/person-with-sexual-toy-bed_23-2149352504.jpg?semt=ais_hybrid", "https://i.imgur.com/qNOjJje.jpeg"];
 
     const parsedImg = isArray(dataImg) ? 
         dataImg[0].includes("[") ? 
