@@ -1,8 +1,10 @@
+import Layout from "../../Components/Layout"
+
 function NotFound() {
   
     return (
       <>
-        <p className='text-amber-900'>Página del NotFound</p>
+        <Layout>Página del NotFound</Layout>
       </>
     )
   }

@@ -1,0 +1,10 @@
+aside {
+    scrollbar-color: gray black;
+    scrollbar-width: none;
+}
+@media (width <= 900px) {
+    aside{
+       top: 108px;
+       block-size: calc(100vh - 115px);
+    }
+}
