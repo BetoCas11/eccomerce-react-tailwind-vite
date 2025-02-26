@@ -6,9 +6,7 @@ import CartProducts from "../../Components/CartProducts";
 
 function MyOrders() {
   const { showProducts, orderDay, setTitleBySearch} = React.useContext(ShoppingCardContext);
-  console.log(orderDay.map(item => item));
-  console.log(orderDay.map(item => item.price));
-  console.log((orderDay.map((item) => item.products).flat(Infinity)));
+
     return (
       <>
             {

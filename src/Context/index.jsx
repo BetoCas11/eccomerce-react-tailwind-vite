@@ -42,6 +42,8 @@ function ShoppingCardProvider ({children}) {
 /* Estados para el filtrado*/
   const [titleBySearch, setTitleBySearch] = React.useState("");
   const [filterItems, setFilterItems] = React.useState([]);
+  /* Filtrado de categorías */
+  const [filterBypreviewCategory, setFilterByPreviewCategory] = React.useState(null);
 
 
     return (
@@ -64,7 +66,9 @@ function ShoppingCardProvider ({children}) {
             titleBySearch, 
             setTitleBySearch,
             filterItems,
-            setFilterItems
+            setFilterItems,
+            setFilterByPreviewCategory,
+            filterBypreviewCategory
         }}>
             {children}
         </ShoppingCardContext.Provider>

@@ -9,7 +9,6 @@ function HistoryOrders() {
   const locationID = URLLocation.substring(lastLocation + 1);
   const shopping = orderDay.filter(item => item.purchaseID == locationID);
   const date = shopping[0].products[0].paymentDate.split(" ");
-  console.log(shopping);
     return (
       <>
         <section className="h-[calc(100%-80px)] w-[75%] max-w-[1050px] mt-20 text-white text-center border border-gray-50 ps-5">
