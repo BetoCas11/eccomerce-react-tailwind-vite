@@ -18,7 +18,7 @@ function Card({data}){
     useEffect(() => {
         setOtherImgs( `https://picsum.photos/640/480?random=${randomNumber}`);
     }, []) 
-    const invalidURL = ["https://placeimg.com/640/480/any", "https://example.com/sample.jpg", "https://placeimg.com/640/480/anzaaay", "https://picsum.photos/200", "https://pravatar.cc/", "https://api.escuelajs.co/api/v1/files/4f9e.jpg", "https://api.escuelajs.co/docs.jpg", "https://test.png", "https://via.placeholder.com/150", "https://via.placeholder.com/300", "https://www.freepik.es/vector-gratis/conjunto-pegatinas-moda-disenos-graficos-vectoriales-coloridos_20775660.htm#fromView=keyword&page=1&position=0&uuid=8c535cf6-7bd5-4a94-9d42-f21a146a0c73&query=Ropa", "https://img.freepik.com/free-photo/person-with-sexual-toy-bed_23-2149352504.jpg?semt=ais_hybrid", "https://i.imgur.com/qNOjJje.jpeg"];
+    const invalidURL = ["https://placeimg.com/640/480/any", "https://placeimg.com/640/480/baby","https://example.com/sample.jpg", "https://placeimg.com/640/480/anzaaay", "https://picsum.photos/200", "https://pravatar.cc/", "https://api.escuelajs.co/api/v1/files/4f9e.jpg", "https://api.escuelajs.co/docs.jpg", "https://test.png", "https://via.placeholder.com/150", "https://via.placeholder.com/300", "https://www.freepik.es/vector-gratis/conjunto-pegatinas-moda-disenos-graficos-vectoriales-coloridos_20775660.htm#fromView=keyword&page=1&position=0&uuid=8c535cf6-7bd5-4a94-9d42-f21a146a0c73&query=Ropa", "https://img.freepik.com/free-photo/person-with-sexual-toy-bed_23-2149352504.jpg?semt=ais_hybrid", "https://i.imgur.com/qNOjJje.jpeg"];
 
     const parsedImg = isArray(dataImg) ? 
         dataImg[0].includes("[") ? 
@@ -49,7 +49,7 @@ function Card({data}){
                 return [...prevV, {
                     "priceOriginal": detailProduct.price,
                     "price": detailProduct.price,
-                    "title": detailProduct.title,
+                    "title": spellingTitle,
                     "description": detailProduct.description,
                     "image": srcImg,
                     "id": detailProduct.id,

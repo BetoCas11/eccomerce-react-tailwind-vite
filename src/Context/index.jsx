@@ -39,7 +39,10 @@ function ShoppingCardProvider ({children}) {
     /* Del carro a ordenes del día */
     const [orderDay, setOrderDay] = React.useState([]);
 
-/* Crear Estado para productos ya pagados (un historial) */
+/* Estados para el filtrado*/
+  const [titleBySearch, setTitleBySearch] = React.useState("");
+  const [filterItems, setFilterItems] = React.useState([]);
+
 
     return (
         <ShoppingCardContext.Provider value={{
@@ -57,7 +60,11 @@ function ShoppingCardProvider ({children}) {
             setShowProducts,
             priceTotal,
             orderDay,
-            setOrderDay
+            setOrderDay,
+            titleBySearch, 
+            setTitleBySearch,
+            filterItems,
+            setFilterItems
         }}>
             {children}
         </ShoppingCardContext.Provider>

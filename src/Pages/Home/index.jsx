@@ -8,20 +8,17 @@ import CartProducts from "../../Components/CartProducts";
 
 
 function Home() {
-   /*  const [items, setItems] = useState([]); */
-    const {items, asideBar, showProducts} = React.useContext(ShoppingCardContext);
-/*     const APIURL = 'https://api.escuelajs.co/api/v1/products';
 
-    useEffect(() => { 
-      async function fetchData (url) {
-        const res =  await fetch(url);
-        const data = await res.json();
-        setItems(data);
-
-      };
-      fetchData(APIURL);
-  }, []);
- */    
+    const {items, asideBar, showProducts, titleBySearch,setTitleBySearch, filterItems,setFilterItems, currentRoute} = React.useContext(ShoppingCardContext);
+    const handlingText = (e) => {
+      const searchValue = e.target.value.toLocaleLowerCase();
+      setTitleBySearch(searchValue);
+      const filterProducts = items.filter(item => {
+        const valueText = item.title.toLocaleLowerCase();
+        return valueText.includes(searchValue);
+      })
+      setFilterItems(filterProducts)
+    }
     return (
       <>
         <Layout>
@@ -31,9 +28,13 @@ function Home() {
             {
               showProducts && <CartProducts></CartProducts>
             }
-           {
-           items.map(card => { return <Card key={card.id} data={card}/>})
-           }
+            <header className="fixed top-28 bg-transparent z-10  w-full">
+              <h1 className="text-white text-center font-black text-3xl">All Products</h1>
+              <input type="text" placeholder="Search Products" className="w-[380px] p-1.5 bg-white border-2 border-gray-400  block mx-auto text-center placeholder:text-center focus:border-2" onChange={handlingText}/>
+            </header>
+
+           {/* {filterItems != 0 ? filterItems.map(card => { return <Card key={card.id} data={card}/>}) : items.map(card => { return <Card key={card.id} data={card}/>})} */}
+           {titleBySearch == false ? items.map(card => { return <Card key={card.id} data={card}/>}) : filterItems != 0 ? filterItems.map(card => { return <Card key={card.id} data={card}/>}) : <p className="text-white">Nothing (。﹏。*)</p> }
         </Layout>
       </>
     )

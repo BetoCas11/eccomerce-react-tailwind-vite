@@ -5,7 +5,7 @@ import Layout from "../../Components/Layout";
 import CartProducts from "../../Components/CartProducts";
 
 function MyOrders() {
-  const { showProducts, orderDay} = React.useContext(ShoppingCardContext);
+  const { showProducts, orderDay, setTitleBySearch} = React.useContext(ShoppingCardContext);
   console.log(orderDay.map(item => item));
   console.log(orderDay.map(item => item.price));
   console.log((orderDay.map((item) => item.products).flat(Infinity)));
@@ -17,7 +17,7 @@ function MyOrders() {
             {
               orderDay != 0 ? 
               <details name="Historal" className="fixed left-2.5 top-32 p-2 border border-white">
-                <summary className="text-white">History</summary>
+                <summary className="text-white cursor-pointer">History</summary>
                 <ul>
                   {orderDay.map(item => {
                     return (

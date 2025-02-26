@@ -4,10 +4,10 @@ import React from "react";
 
 function NavBar () {
     const activeStyle = "underline underline-offset-4";
-    const {count, cartProducts, setAsideBar, setShowProducts} = React.useContext(ShoppingCardContext);
+    const {count, cartProducts, setAsideBar, setShowProducts, setTitleBySearch, setFilterItems} = React.useContext(ShoppingCardContext);
     const showCart = () => {
         setAsideBar(false);
-        setShowProducts(prevV => !prevV)
+        setShowProducts(prevV => !prevV);
     };
     return (
         <nav className="flex gap-2 text-[15px] text-lg justify-between w-full h-auto px-8 py-5 fixed top-0 z-10 border-b shadow-2xl bg-stone-100">
@@ -21,7 +21,7 @@ function NavBar () {
                     </svg>
                 </li>
                 <li>
-                    <NavLink to='/all' className={({isActive}) => isActive ? activeStyle : undefined} onClick={() => setShowProducts(false)}>
+                    <NavLink to='/all' className={({isActive}) => isActive ? activeStyle : undefined} onClick={() => {setShowProducts(false); setTitleBySearch(""); setFilterItems([]);}}>
                         All
                     </NavLink>
                 </li>
@@ -36,7 +36,7 @@ function NavBar () {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/furnitures' className={({isActive}) => isActive ? activeStyle : undefined}>
+                    <NavLink to='/furniture' className={({isActive}) => isActive ? activeStyle : undefined}>
                         Furnitures
                     </NavLink>
                 </li>

@@ -7,7 +7,8 @@ const styleBar = {
 };
 
 function CartProducts () {
-    const {setCount, setShowProducts, cartProducts, setCartProducts, priceTotal, orderDay,setOrderDay} = React.useContext(ShoppingCardContext);
+    const {setCount, setShowProducts, cartProducts, setCartProducts, priceTotal, orderDay,setOrderDay, setTitleBySearch, setFilterItems} = React.useContext(ShoppingCardContext);
+    
     const deletedProduct = (remove, decrement) => {
         const products = [...cartProducts];
         const productToIndex = products.findIndex(item => item.title == remove);
@@ -19,6 +20,7 @@ function CartProducts () {
         setOrderDay(prevV => [...prevV, {"products" : cartProducts, "price": priceTotal, "purchaseID": Math.floor(Math.random() * 100000).toString(8)}]);
         setCount(0)
         setCartProducts([]);
+        setTitleBySearch("");
     };
     return (
         <AsideBar showProducts={setShowProducts} text={"Your Cart (My order)"}>
