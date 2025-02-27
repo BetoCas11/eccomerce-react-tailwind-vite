@@ -1,4 +1,4 @@
-import {useRoutes, BrowserRouter} from "react-router-dom";
+import {useRoutes, BrowserRouter, HashRouter} from "react-router-dom";
 import { useState } from 'react';
 import {ShoppingCardProvider} from "../../Context";
 import Home from '../Home';
@@ -34,10 +34,10 @@ const Approutes = () => {
 function App() {
   return (
     <ShoppingCardProvider>
-      <BrowserRouter>
+      <HashRouter>
         <Approutes></Approutes>
         <NavBar></NavBar>
-      </BrowserRouter>
+      </HashRouter>
     </ShoppingCardProvider>
   )
 }
