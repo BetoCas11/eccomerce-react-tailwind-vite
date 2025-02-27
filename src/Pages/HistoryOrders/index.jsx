@@ -4,7 +4,7 @@ import { ShoppingCardContext } from "../../Context"
 
 function HistoryOrders() {
   const {orderDay} = React.useContext(ShoppingCardContext);
-  const URLLocation = window.location.pathname
+  const URLLocation = window.location.hash
   const lastLocation = URLLocation.lastIndexOf("/");
   const locationID = URLLocation.substring(lastLocation + 1);
   const shopping = orderDay.filter(item => item.purchaseID == locationID);
