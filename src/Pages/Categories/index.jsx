@@ -8,7 +8,7 @@ import CartProducts from "../../Components/CartProducts";
 function Categories () {
     const {items, asideBar, showProducts, setTitleBySearch, setFilterItems, filterItems, titleBySearch, filterBypreviewCategory, setFilterByPreviewCategory} = React.useContext(ShoppingCardContext);
         /* Filtrar mediante la ruta */
-    const currentRoute = location.pathname.slice(1);
+    const currentRoute = location.hash.slice(2);
     const filterCategories = () => items.filter(item => item.category.slug == currentRoute);
     const categories = ["clothes","electronics","furniture","toys"];
     const handlingText = (e) => {
